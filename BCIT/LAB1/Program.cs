@@ -159,7 +159,6 @@ namespace BCIT
                 ICoef = ConvertArgs(ReadArgs());
             }
             double[] Nroots = NumberOfRoots(ICoef);
-            Console.WriteLine("AAAAAAAAAAAA");
             Console.ReadKey();
         }
     }
