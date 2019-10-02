@@ -33,9 +33,7 @@ namespace BCIT
         }
         static double[] NumberOfRoots(int[] ICoef)
         {
-            System.Console.WriteLine($"{Pow(ICoef[1],2)} {ICoef[0]} {ICoef[2]}");
             double D = (Pow(ICoef[1],2) - 4 * ICoef[0] * ICoef[2]);
-            System.Console.WriteLine(D);
             int Nroots = 0;
             double[] Roots;
             if (ICoef[0] == 0)
@@ -82,9 +80,9 @@ namespace BCIT
             }
             if (D > 0)
             {
-                if (((-ICoef[1] - Sqrt(D)) / (2 * ICoef[0]) > 0) && ((-ICoef[0] + Sqrt(D)) / (2 * ICoef[0]) > 0))
+                if (((-ICoef[1] - Sqrt(D)) / (2 * ICoef[0]) > 0) && ((-ICoef[1] + Sqrt(D)) / (2 * ICoef[0]) > 0))
                 {
-                    Console.WriteLine("Часть 1");
+                   
                     Nroots = 4;
                     Roots = new double[4];
                     Roots[0] = Sqrt((-ICoef[1] - Sqrt(D)) / (2 * ICoef[0]));
@@ -102,7 +100,7 @@ namespace BCIT
                 }
                 else if (((-ICoef[1] - Sqrt(D)) / (2 * ICoef[0]) > 0) || ((-ICoef[1] + Sqrt(D)) / (2 * ICoef[0]) > 0))
                 {
-                    Console.WriteLine("Часть 2");
+                   
                     Nroots = 2;
                     Roots = new double[2];
                     if (((-ICoef[0] - D) / (2 * ICoef[0])) > 0)
@@ -120,7 +118,7 @@ namespace BCIT
                     }
                     else if (((-ICoef[1] + Sqrt(D)) / (2 * ICoef[0])) > 0)
                     {
-                        Console.WriteLine("Часть 3");
+                        
                         D = ((-ICoef[1] + Sqrt(D)) / (2 * ICoef[0]));
                         Roots[0] = Sqrt(D);
                         Roots[1] = -Sqrt(D);
@@ -150,12 +148,12 @@ namespace BCIT
         }
         static void Main(string[] args)
         {
-
+            Console.Title = "Шпак Игорь ИУ5-34Б";
             int[] ICoef = new int[3];
-            //args = ReadArgs();
             try { ICoef = ConvertArgs(args); }
             catch (Exception)
             {
+                System.Console.WriteLine("Ошибка чтения параметров командной строки");
                 ICoef = ConvertArgs(ReadArgs());
             }
             double[] Nroots = NumberOfRoots(ICoef);
