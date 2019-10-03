@@ -12,13 +12,13 @@ namespace BCIT
 
             string[] Coef;
             Coef = new string[3];
-            int a;
+            double a;
             int i = 0;
             while (i < 3)
             {
                 System.Console.WriteLine($"Введите  {i+1}  значение");
                 Coef[i] = System.Console.ReadLine();
-                if (Int32.TryParse(Coef[i], out a))
+                if (Double.TryParse(Coef[i], out a))
                 {
                     i++;
                 }
@@ -31,7 +31,7 @@ namespace BCIT
             }
             return (Coef);
         }
-        static double[] NumberOfRoots(int[] ICoef)
+        static double[] NumberOfRoots(double[] ICoef)
         {
             double D = (Pow(ICoef[1],2) - 4 * ICoef[0] * ICoef[2]);
             int Nroots = 0;
@@ -137,19 +137,19 @@ namespace BCIT
             Console.ResetColor();
             return null;
         }
-        static int[] ConvertArgs(string[] Sroots)
+        static double[] ConvertArgs(string[] Sroots)
         {
-            int[] ICoef = new int[3];
+            double[] ICoef = new double[3];
             for (int i = 0; i < 3; i++)
             {
-                ICoef[i] = Int32.Parse(Sroots[i]);
+                ICoef[i] =Double.Parse(Sroots[i]);
             }
             return (ICoef);
         }
         static void Main(string[] args)
         {
             Console.Title = "Шпак Игорь ИУ5-34Б";
-            int[] ICoef = new int[3];
+            double[] ICoef = new double[3];
             try { ICoef = ConvertArgs(args); }
             catch (Exception)
             {
