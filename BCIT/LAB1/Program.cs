@@ -55,7 +55,7 @@ namespace BCIT
                         return (null);
                     }
                 }
-                if (ICoef[2]/ICoef[1]<0)
+                if (ICoef[2]/ICoef[1]<=0)
                 {
                     Console.WriteLine(ICoef[2] / ICoef[1]);
                     Nroots = 2;
@@ -80,9 +80,8 @@ namespace BCIT
             }
             if (D > 0)
             {
-                if (((-ICoef[1] - Sqrt(D)) / (2 * ICoef[0]) > 0) && ((-ICoef[1] + Sqrt(D)) / (2 * ICoef[0]) > 0))
+                if (((-ICoef[1] - Sqrt(D)) / (2 * ICoef[0]) >= 0) && ((-ICoef[1] + Sqrt(D)) / (2 * ICoef[0]) >= 0))
                 {
-                   
                     Nroots = 4;
                     Roots = new double[4];
                     Roots[0] = Sqrt((-ICoef[1] - Sqrt(D)) / (2 * ICoef[0]));
@@ -98,12 +97,12 @@ namespace BCIT
                     }
                     return (Roots);
                 }
-                else if (((-ICoef[1] - Sqrt(D)) / (2 * ICoef[0]) > 0) || ((-ICoef[1] + Sqrt(D)) / (2 * ICoef[0]) > 0))
+                else if (((-ICoef[1] - Sqrt(D)) / (2 * ICoef[0]) >= 0) || ((-ICoef[1] + Sqrt(D)) / (2 * ICoef[0]) >= 0))
                 {
                    
                     Nroots = 2;
                     Roots = new double[2];
-                    if (((-ICoef[0] - D) / (2 * ICoef[0])) > 0)
+                    if (((-ICoef[0] - D) / (2 * ICoef[0])) >= 0)
                     {
                         D = (-ICoef[1] - Sqrt(D)) / (2 * ICoef[0]);
                         Roots[0] = Sqrt(D);
@@ -116,7 +115,7 @@ namespace BCIT
                         }
                         return (Roots);
                     }
-                    else if (((-ICoef[1] + Sqrt(D)) / (2 * ICoef[0])) > 0)
+                    else if (((-ICoef[1] + Sqrt(D)) / (2 * ICoef[0])) >= 0)
                     {
                         
                         D = ((-ICoef[1] + Sqrt(D)) / (2 * ICoef[0]));
