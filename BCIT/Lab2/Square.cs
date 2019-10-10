@@ -1,12 +1,12 @@
-﻿namespace Figures
-{
-    class Square : Rectangle, IPrint
+﻿    namespace Figures
     {
-        public Square(double size)
-            : base(size, size) { }
-        public override string ToString()
+        class Square : Rectangle, IPrint
         {
-            return ("Квадрат =" + this.Area().ToString());
+            public Square(double size)
+                : base(size, size) { }
+            public override string ToString()
+            {
+                return ("Квадрат =" + this.Area().ToString());
+            }
         }
     }
-}
