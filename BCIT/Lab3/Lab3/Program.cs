@@ -41,11 +41,12 @@ namespace Lab3
             stack.Push(square);
             stack.Push(circle);
             foreach (var x in stack) Console.WriteLine(x);
-            Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAA");
-            Console.WriteLine(stack.Pop());
-            Console.WriteLine(stack.Pop());
-            Console.WriteLine(stack.Pop());
-            Console.WriteLine(stack.Pop()); 
+
+            Console.WriteLine("\n" + stack.Pop() + "\n");
+            Console.WriteLine(stack.Pop() + "\n");
+            Console.WriteLine(stack.Pop() + "\n");
+
+            foreach (var x in stack) Console.WriteLine(x);
         }
     }
 }
