@@ -49,7 +49,7 @@ namespace Lab4
             readfiledialog.ShowDialog();
             
             stopwatch.Restart();
-            String[] tmp=File.ReadAllText(readfiledialog.FileName).Split(new char[] {'\n','\r'});
+            String[] tmp=File.ReadAllText(readfiledialog.FileName).Split(new char[] {'\n','\r',' '});
            
             Words = new List<String>() ;
            foreach (string x in tmp)
