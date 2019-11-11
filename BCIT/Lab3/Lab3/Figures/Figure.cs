@@ -3,7 +3,7 @@ namespace Lab3
 {     abstract class Figure : IComparable
     {
         public abstract double Area();
-        public int CompareTo(object obj)
+        public int CompareTo(Object obj)
         {
             if (obj == null) return 1;
             Figure com=(Figure)obj; 
@@ -14,7 +14,7 @@ namespace Lab3
                 Console.WriteLine("obj is not a Figure");
                 return (1);
             }
-        }
+        } 
 
     }
 }

@@ -28,7 +28,7 @@ namespace Lab4
             WordList.BeginUpdate();
             foreach (String x in Words)
             {
-                if (x.Contains(a))
+                if (x.ToLower().Contains(a.ToLower()))
                 {
                     WordList.Items.Add(x);
                 }
@@ -49,12 +49,13 @@ namespace Lab4
             readfiledialog.ShowDialog();
             
             stopwatch.Restart();
-            String[] tmp=File.ReadAllText(readfiledialog.FileName).Split(new char[] {'\n','\r',' '});
+            String[] tmp=File.ReadAllText(readfiledialog.FileName, Encoding.UTF8).Split(new char[] {'\n','\r',' '});
            
             Words = new List<String>() ;
            foreach (string x in tmp)
             {
-                if (x.Trim() != "" && !Words.Contains(x))
+                
+                if ((x.Trim() != "") && (!Words.Contains(x)))
                 {
                     Words.Add(x);
                 }
