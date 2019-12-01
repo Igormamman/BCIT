@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using Lab5;
+
+
 namespace Lab4
 {
     public partial class Form1 : Form
@@ -21,17 +24,24 @@ namespace Lab4
 
         private void Search_Click(object sender, EventArgs e)
         {
-            if (Words == null)
+            int m;
+            if (Words == null || !Int32.TryParse(max.Text, out m))
                 return;
             String a = Pattern.Text;
             WordList.Items.Clear();
             WordList.BeginUpdate();
             foreach (String x in Words)
             {
-                if (x.ToLower().Contains(a.ToLower()))
-                {
-                    WordList.Items.Add(x);
-                }
+                if (checkBox1.Checked == true)
+                    if ((Leven.damerau_levenshtein_distance(x, Pattern.Text)) < m)
+                    {
+                        WordList.Items.Add(x);
+                    }
+                if (checkBox1.Checked == false)
+                    if ((Leven.Distance(x, Pattern.Text)) < m)
+                    {
+                        WordList.Items.Add(x);
+                    }
             }
             WordList.EndUpdate();
         }
@@ -49,7 +59,7 @@ namespace Lab4
             readfiledialog.ShowDialog();
             
             stopwatch.Restart();
-            String[] tmp=File.ReadAllText(readfiledialog.FileName, Encoding.UTF8).Split(new char[] {'\n','\r',' '});
+            String[] tmp=File.ReadAllText(readfiledialog.FileName, Encoding.GetEncoding("Windows-1251")).Split(new char[] {'\n','\r',' ','.',',','!','?'});
            
             Words = new List<String>() ;
            foreach (string x in tmp)
