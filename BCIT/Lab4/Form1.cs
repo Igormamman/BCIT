@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+
 using Lab5;
 
 
@@ -33,12 +34,12 @@ namespace Lab4
             foreach (String x in Words)
             {
                 if (checkBox1.Checked == true)
-                    if ((Leven.damerau_levenshtein_distance(x, Pattern.Text)) < m)
+                    if ((Leven.damerau_levenshtein_distance(x, Pattern.Text)) <= m)
                     {
                         WordList.Items.Add(x);
                     }
                 if (checkBox1.Checked == false)
-                    if ((Leven.Distance(x, Pattern.Text)) < m)
+                    if ((Leven.Distance(x, Pattern.Text)) <= m)
                     {
                         WordList.Items.Add(x);
                     }
